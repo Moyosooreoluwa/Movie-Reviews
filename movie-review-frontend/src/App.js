@@ -8,9 +8,37 @@ import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
 import PostReview from './Components/PostReview';
+import MovieList from './Components/MovieList';
 
 function App() {
+  const data = [
+    {
+      name: 'Avengers: Endgame',
+      rating: 88,
+      review: 'Avengers Assemble',
+      tags: 'Superhero, Action, Fiction',
+    },
+    {
+      name: 'Avengers: Endgame',
+      rating: 88,
+      review: 'Avengers Assemble',
+      tags: 'Superhero, Action, Fiction',
+    },
+    {
+      name: 'Avengers: Endgame',
+      rating: 88,
+      review: 'Avengers Assemble',
+      tags: 'Superhero, Action, Fiction',
+    },
+    {
+      name: 'Avengers: Endgame',
+      rating: 88,
+      review: 'Avengers Assemble',
+      tags: 'Superhero, Action, Fiction',
+    },
+  ];
   return (
     <BrowserRouter>
       <div>
@@ -42,6 +70,16 @@ function App() {
               </Col>
               <Col>
                 <h2>Movies</h2>
+                <Container>
+                  {data.map((x) => (
+                    <MovieList
+                      name={x.name}
+                      rating={x.rating}
+                      tags={x.tags}
+                      review={x.review}
+                    />
+                  ))}
+                </Container>
               </Col>
             </Row>
           </Container>
