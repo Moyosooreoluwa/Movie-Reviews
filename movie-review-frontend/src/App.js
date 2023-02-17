@@ -15,15 +15,20 @@ function App() {
     <BrowserRouter>
       <div>
         <header className="mb-5">
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar
+            bg="transparent"
+            variant="transparent"
+            expand="lg"
+            sticky="top"
+          >
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>MovieReviews</Navbar.Brand>
               </LinkContainer>
               <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto w-100 justify-content-end">
+                <Nav className="me-auto w-100 justify-content-end ">
                   {/* {!userInfo && ( */}
-                  <Link className="nav-link" to="/signin">
+                  <Link className="nav-link nav-text" to="/signin">
                     Sign In (Admin Only)
                   </Link>
                 </Nav>

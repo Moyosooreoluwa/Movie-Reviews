@@ -9,7 +9,7 @@ export default function PostReview() {
       <div className="form-border mt-5">
         <Form className="post-form">
           <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
+            <Form.Label className="label">Name</Form.Label>
             <Form.Control
               type="text"
               required
@@ -18,7 +18,7 @@ export default function PostReview() {
             <Form.Text className="text-muted">E.g The Godfather</Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="rating">
-            <Form.Label>Rating</Form.Label>
+            <Form.Label className="label">Rating</Form.Label>
             <Form.Control
               type="number"
               max={100}
@@ -29,16 +29,18 @@ export default function PostReview() {
             <Form.Text className="text-muted">Out of 100</Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="review">
-            <Form.Label>Review</Form.Label>
+            <Form.Label className="label">Review</Form.Label>
             <Form.Control
+              className="inputs"
               as="textarea"
               required
               aria-multiline
+
               // onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="tags">
-            <Form.Label>Tags (Genre)</Form.Label>
+            <Form.Label className="label">Tags (Genre)</Form.Label>
             <Form.Control
               type="text"
               required

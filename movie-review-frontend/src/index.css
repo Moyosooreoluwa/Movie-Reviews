@@ -5,6 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18); */
+  background: linear-gradient(
+    to right,
+    #f6f5f8 0%,
+    #f6f5f8 40%,
+    #181a1e 40%,
+    #181a1e 100%
+  );
+  /* background-color: #02020e; */
 }
 
 code {
@@ -21,12 +35,37 @@ main {
 }
 
 .form-border {
-  border: 0.1rem solid #000;
-  border-radius: 7%;
   padding: 1rem;
   width: 75%;
+  background-color: #fff;
 }
 
 .small-container {
   max-width: 600px;
+}
+
+.label {
+  color: #030303;
+}
+
+.movie-list-container {
+  overflow-y: scroll;
+  height: 100vh;
+  background: transparent;
+}
+
+.card-list {
+  background-color: #202528;
+  color: #fff;
+  border-radius: 1rem;
+  width: 80%;
+}
+
+.movie-list-title,
+.nav-text {
+  color: #fff;
+}
+
+.nav-text:hover {
+  color: #d0d0d0;
 }

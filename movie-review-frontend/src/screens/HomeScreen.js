@@ -43,8 +43,8 @@ export default function HomeScreen() {
           <PostReview />
         </Col>
         <Col>
-          <h2>Movies</h2>
-          <Container>
+          <h2 className="movie-list-title">Movies</h2>
+          <Container className="movie-list-container">
             {data.map((x) => (
               <div key={x.name} className="mt-5">
                 <MovieList
