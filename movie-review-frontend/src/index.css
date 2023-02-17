@@ -20,34 +20,12 @@ main {
   flex: 1;
 }
 
-/* sidebar */
-.navbar-brand {
-  font-weight: bold;
-  text-decoration: none;
-}
-.side-navbar {
-  width: 240px;
-  height: 100%;
-  position: absolute;
-  left: -300px;
-  background-color: #f8f9fa;
-  transition: 0.5s;
-}
-.site-container {
-  transition: 0.4s;
-}
-.active-cont {
-  margin-left: 240px;
+.form-border {
+  border: 0.1rem solid #000;
+  border-radius: 7%;
+  padding: 1rem;
+  width: 75%;
 }
 
-.active-nav {
-  left: 0;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.no-dec {
-  text-decoration: none;
+.post-form {
 }

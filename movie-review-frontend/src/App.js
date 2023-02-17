@@ -24,7 +24,7 @@ function App() {
                 <Nav className="me-auto w-100 justify-content-end">
                   {/* {!userInfo && ( */}
                   <Link className="nav-link" to="/signin">
-                    Sign In
+                    Sign In (Admin Only)
                   </Link>
                 </Nav>
               </Navbar.Collapse>
@@ -34,11 +34,22 @@ function App() {
         <main>
           <Container>
             <Row>
-              <Col>Post a Review</Col>
-              <Col>Movies</Col>
+              <Col>
+                <div className="mb-3">
+                  <h2>Post a Review</h2>
+                </div>
+                <PostReview />
+              </Col>
+              <Col>
+                <h2>Movies</h2>
+              </Col>
             </Row>
           </Container>
         </main>
+
+        <footer className="mt-5">
+          <div className="text-center">Moyo 2022</div>
+        </footer>
       </div>
     </BrowserRouter>
   );
