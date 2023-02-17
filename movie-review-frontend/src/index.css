@@ -69,3 +69,11 @@ main {
 .nav-text:hover {
   color: #d0d0d0;
 }
+
+footer {
+  color: #f6f5f8;
+}
+
+.search {
+  width: 85%;
+}

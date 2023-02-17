@@ -44,7 +44,7 @@ function App() {
         </main>
 
         <footer className="mt-5">
-          <div className="text-center">Moyo 2022</div>
+          <div className="text-center">Moyo 2023</div>
         </footer>
       </div>
     </BrowserRouter>
