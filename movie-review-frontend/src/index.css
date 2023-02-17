@@ -27,5 +27,6 @@ main {
   width: 75%;
 }
 
-.post-form {
+.small-container {
+  max-width: 600px;
 }
