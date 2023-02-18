@@ -5,39 +5,14 @@ import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import { Helmet } from 'react-helmet-async';
 
 import MovieList from '../Components/MovieList';
 import PostReview from '../Components/PostReview';
-import { Helmet } from 'react-helmet-async';
 import About from '../Components/About';
+import data from '../data';
 
 export default function HomeScreen() {
-  const data = [
-    {
-      name: 'Avengers: Endgame1',
-      rating: 88,
-      review: 'Avengers Assemble',
-      tags: 'Superhero, Action, Fiction',
-    },
-    {
-      name: 'Avengers: Endgame2',
-      rating: 88,
-      review: 'Avengers Assemble',
-      tags: 'Superhero, Action, Fiction',
-    },
-    {
-      name: 'Avengers: Endgame3',
-      rating: 88,
-      review: 'Avengers Assemble',
-      tags: 'Superhero, Action, Fiction',
-    },
-    {
-      name: 'Avengers: Endgame4',
-      rating: 88,
-      review: 'Avengers Assemble',
-      tags: 'Superhero, Action, Fiction',
-    },
-  ];
   return (
     <div>
       <Helmet>
@@ -70,13 +45,13 @@ export default function HomeScreen() {
                   ></FormControl>
                 </InputGroup>
               </Form>
-              {data.map((x) => (
-                <div key={x.name} className="mt-5">
+              {data.movies.map((movie) => (
+                <div key={movie.name} className="mt-5">
                   <MovieList
-                    name={x.name}
-                    rating={x.rating}
-                    tags={x.tags}
-                    review={x.review}
+                    name={movie.name}
+                    rating={movie.rating}
+                    tags={movie.tags}
+                    review={movie.review}
                   />
                 </div>
               ))}
