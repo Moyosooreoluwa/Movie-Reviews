@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -6,13 +6,48 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
+import logger from 'use-reducer-logger';
 
 import MovieList from '../Components/MovieList';
 import PostReview from '../Components/PostReview';
 import About from '../Components/About';
-import data from '../data';
+// import data from '../data';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_REQUEST':
+      return { ...state, loading: true };
+    case 'FETCH_SUCCESS':
+      return { ...state, movies: action.payload, loading: false };
+    case 'FETCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
 
 export default function HomeScreen() {
+  // const [movies, setMovies] = useState([]);
+  const [{ loading, error, movies }, dispatch] = useReducer(logger(reducer), {
+    movies: [],
+    loading: true,
+    error: '',
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
+      try {
+        const result = await axios.get('/api/movies');
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data.movies });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+      }
+      //setMovies(result.data.movies);
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       <Helmet>
@@ -45,7 +80,7 @@ export default function HomeScreen() {
                   ></FormControl>
                 </InputGroup>
               </Form>
-              {data.movies.map((movie) => (
+              {movies.map((movie) => (
                 <div key={movie.name} className="mt-5">
                   <MovieList
                     name={movie.name}

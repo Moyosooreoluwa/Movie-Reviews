@@ -8,4 +8,5 @@
 6. SIGNIN PAGE - Only Admin(me) will have an account in order to post the reviews. all other users will be able to view reviews but not post a review of their own.
 7. EDITING UI
 8. ADDING SEARCH BAR
-9. Create NodeJs Server
+9. CREATE NODEJS SERVER
+10. FETCH DATA FROM BACKEND
