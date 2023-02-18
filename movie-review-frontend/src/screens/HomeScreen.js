@@ -100,10 +100,14 @@ export default function HomeScreen() {
                 ))
               ) : (
                 movies
-                  .filter((movie) =>
-                    movie.name
-                      .toLowerCase()
-                      .includes(searchTerm.toLocaleLowerCase())
+                  .filter(
+                    (movie) =>
+                      movie.name
+                        .toLowerCase()
+                        .includes(searchTerm.toLocaleLowerCase()) ||
+                      movie.tags
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
                   )
                   .map((movie) => (
                     <div key={movie._id} className="mt-5">
