@@ -8,6 +8,8 @@ import FormControl from 'react-bootstrap/FormControl';
 
 import MovieList from '../Components/MovieList';
 import PostReview from '../Components/PostReview';
+import { Helmet } from 'react-helmet-async';
+import About from '../Components/About';
 
 export default function HomeScreen() {
   const data = [
@@ -37,48 +39,51 @@ export default function HomeScreen() {
     },
   ];
   return (
-    <Container>
-      <Row>
-        <Col>
-          <div className="mb-3">
-            <h2>Post a Review</h2>
-          </div>
-          <PostReview />
-        </Col>
-        <Col>
-          <h2 className="movie-list-title">Movies</h2>
-          <Container className="movie-list-container">
-            {/* <input
+    <div>
+      <Helmet>
+        <title>MovieReviews - I review some movies</title>
+      </Helmet>
+      <Container>
+        <Row>
+          <Col>
+            {/* <PostReview /> */}
+            <About />
+          </Col>
+          <Col>
+            <h2 className="movie-list-title">Movies</h2>
+            <Container className="movie-list-container">
+              {/* <input
               className="mt-2 mb-2 search"
               type="text"
               placeholder="Search movie names or tags"
             /> */}
-            <Form className="d-flex me-auto search">
-              <InputGroup>
-                <FormControl
-                  type="text"
-                  name="q"
-                  id="q"
-                  // onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search movie names or tags..."
-                  aria-label="Search movie names or tags..."
-                  aria-describedby="button-search"
-                ></FormControl>
-              </InputGroup>
-            </Form>
-            {data.map((x) => (
-              <div key={x.name} className="mt-5">
-                <MovieList
-                  name={x.name}
-                  rating={x.rating}
-                  tags={x.tags}
-                  review={x.review}
-                />
-              </div>
-            ))}
-          </Container>
-        </Col>
-      </Row>
-    </Container>
+              <Form className="d-flex me-auto search">
+                <InputGroup>
+                  <FormControl
+                    type="text"
+                    name="q"
+                    id="q"
+                    // onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search movie names or tags..."
+                    aria-label="Search movie names or tags..."
+                    aria-describedby="button-search"
+                  ></FormControl>
+                </InputGroup>
+              </Form>
+              {data.map((x) => (
+                <div key={x.name} className="mt-5">
+                  <MovieList
+                    name={x.name}
+                    rating={x.rating}
+                    tags={x.tags}
+                    review={x.review}
+                  />
+                </div>
+              ))}
+            </Container>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
