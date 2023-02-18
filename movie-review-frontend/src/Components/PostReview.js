@@ -55,7 +55,9 @@ export default function PostReview() {
               </Form.Text>
             </Form.Group>
             <div className="'mb-3">
-              <Button type="submit">Post</Button>
+              <Button className="btn-post" type="submit">
+                Post
+              </Button>
             </div>
           </Form>
         </div>
