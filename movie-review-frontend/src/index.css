@@ -77,3 +77,41 @@ footer {
 .search {
   width: 85%;
 }
+
+/* LOADING SPINNER AND MESSAGE BOX*/
+
+.spinner {
+  display: inline-block;
+  left: 20%;
+  width: 5rem;
+  height: 5rem;
+}
+.spinner:after {
+  content: ' ';
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.5rem;
+  border-radius: 50%;
+  border: 0.375rem solid #f6f5f8;
+  border-color: #f6f5f8 transparent #f6f5f8 transparent;
+  animation: spinner 1.2s linear infinite;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  font-size: 1.5rem;
+  color: #f6f5f8;
+}
+
+.message-box {
+  margin-top: 3rem;
+  width: 80%;
+}

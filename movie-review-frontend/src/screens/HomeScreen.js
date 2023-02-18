@@ -12,6 +12,8 @@ import logger from 'use-reducer-logger';
 import MovieList from '../Components/MovieList';
 import PostReview from '../Components/PostReview';
 import About from '../Components/About';
+import LoadingSpinner from '../Components/LoadingSpinner';
+import MessageBox from '../Components/MessageBox';
 // import data from '../data';
 
 const reducer = (state, action) => {
@@ -80,16 +82,23 @@ export default function HomeScreen() {
                   ></FormControl>
                 </InputGroup>
               </Form>
-              {movies.map((movie) => (
-                <div key={movie.name} className="mt-5">
-                  <MovieList
-                    name={movie.name}
-                    rating={movie.rating}
-                    tags={movie.tags}
-                    review={movie.review}
-                  />
-                </div>
-              ))}
+
+              {loading ? (
+                <LoadingSpinner />
+              ) : error ? (
+                <MessageBox variant="danger">{error}</MessageBox>
+              ) : (
+                movies.map((movie) => (
+                  <div key={movie.name} className="mt-5">
+                    <MovieList
+                      name={movie.name}
+                      rating={movie.rating}
+                      tags={movie.tags}
+                      review={movie.review}
+                    />
+                  </div>
+                ))
+              )}
             </Container>
           </Col>
         </Row>
