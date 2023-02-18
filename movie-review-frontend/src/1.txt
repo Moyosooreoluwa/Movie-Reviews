@@ -36,7 +36,7 @@ export default function HomeScreen() {
     loading: true,
     error: '',
   });
-  const [searchTerm, setSearchTerm] = useState('');
+const [searchTerm,setSearchTerm]=useState('')
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
@@ -87,7 +87,7 @@ export default function HomeScreen() {
                 <LoadingSpinner />
               ) : error ? (
                 <MessageBox variant="danger">{error}</MessageBox>
-              ) : searchTerm === '' ? (
+              ) : (
                 movies.map((movie) => (
                   <div key={movie._id} className="mt-5">
                     <MovieList
@@ -98,23 +98,6 @@ export default function HomeScreen() {
                     />
                   </div>
                 ))
-              ) : (
-                movies
-                  .filter((movie) =>
-                    movie.name
-                      .toLowerCase()
-                      .includes(searchTerm.toLocaleLowerCase())
-                  )
-                  .map((movie) => (
-                    <div key={movie._id} className="mt-5">
-                      <MovieList
-                        name={movie.name}
-                        rating={movie.rating}
-                        tags={movie.tags}
-                        review={movie.review}
-                      />
-                    </div>
-                  ))
               )}
             </Container>
           </Col>
