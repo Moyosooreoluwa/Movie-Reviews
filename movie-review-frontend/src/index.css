@@ -34,23 +34,6 @@ main {
   flex: 1;
 }
 
-/* FORM  */
-
-.form-border {
-  padding: 1.5rem;
-  width: 75%;
-  background-color: #fff;
-}
-
-.btn-post {
-  background-color: #202528;
-  border-color: #030303;
-}
-.btn-post:hover {
-  background-color: #696969;
-  border-color: #696969;
-}
-
 .small-container {
   max-width: 600px;
 }
@@ -142,4 +125,21 @@ footer {
 
 .movie-list-title {
   color: #fff;
+}
+
+/* FORM  */
+
+.form-border {
+  padding: 1.5rem;
+  width: 75%;
+  background-color: #fff;
+}
+
+.btn-post {
+  background-color: #202528;
+  border-color: #030303;
+}
+.btn-post:hover {
+  background-color: #696969;
+  border-color: #696969;
 }

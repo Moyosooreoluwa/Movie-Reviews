@@ -27,9 +27,11 @@ app.get('/api/movies', (req, res) => {
   res.send(data);
 });
 
-// app.use('/api/movies', movieRouter);
+app.use('/api/movies', movieRouter);
 
 app.use('/api/users', userRouter);
+
+// app.use('/api/users')
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });

@@ -44,7 +44,7 @@ export default function HomeScreen() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/movies');
+        const result = await axios.get('api/movies');
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data.movies });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -89,7 +89,7 @@ export default function HomeScreen() {
                 <MessageBox variant="danger">{error}</MessageBox>
               ) : (
                 movies.map((movie) => (
-                  <div key={movie.name} className="mt-5">
+                  <div key={movie._id} className="mt-5">
                     <MovieList
                       name={movie.name}
                       rating={movie.rating}
