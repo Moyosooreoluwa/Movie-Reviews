@@ -1,4 +1,13 @@
+import bcrypt from 'bcryptjs';
 const data = {
+  users: [
+    {
+      name: 'Admin',
+      email: 'moyo@admin.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+  ],
   movies: [
     {
       name: 'Avengers: Endgame1',
