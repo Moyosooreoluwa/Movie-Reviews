@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,13 +7,13 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
 
 import MovieList from '../Components/MovieList';
 import PostReview from '../Components/PostReview';
 import About from '../Components/About';
 import LoadingSpinner from '../Components/LoadingSpinner';
 import MessageBox from '../Components/MessageBox';
+import { Store } from '../store';
 // import data from '../data';
 
 const reducer = (state, action) => {
@@ -31,11 +31,14 @@ const reducer = (state, action) => {
 
 export default function HomeScreen() {
   // const [movies, setMovies] = useState([]);
-  const [{ loading, error, movies }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, movies }, dispatch] = useReducer(reducer, {
     movies: [],
     loading: true,
     error: '',
   });
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,10 +60,7 @@ export default function HomeScreen() {
       </Helmet>
       <Container>
         <Row>
-          <Col>
-            {/* <PostReview /> */}
-            <About />
-          </Col>
+          <Col>{userInfo ? <PostReview /> : <About />}</Col>
           <Col>
             <h2 className="movie-list-title">Movies</h2>
             <Container className="movie-list-container">
