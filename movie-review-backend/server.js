@@ -2,6 +2,8 @@ import express from 'express';
 import data from './data.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import seedRouter from './routes/seedRoutes.js';
+import movieRouter from './routes/movieRoutes.js';
 
 dotenv.config();
 
@@ -16,9 +18,13 @@ mongoose
 
 const app = express();
 
+app.use('/api/seed', seedRouter);
+
 app.get('/api/movies', (req, res) => {
   res.send(data);
 });
+
+// app.use('/api/movies', movieRouter);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
