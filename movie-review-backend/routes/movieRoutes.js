@@ -10,6 +10,15 @@ movieRouter.get('/', async (req, res) => {
   res.send(movies);
 });
 
+movieRouter.get('/:id', async (req, res) => {
+  const movie = await Movie.findById(req.params.id);
+  if (movie) {
+    res.send(movie);
+  } else {
+    res.status(404).send('Movie not found.');
+  }
+});
+
 movieRouter.post(
   '/',
   expressAsyncHandler(async (req, res) => {

@@ -23,13 +23,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/seed', seedRouter);
 
-app.get('/api/movies', (req, res) => {
-  res.send(data);
-});
-
 app.use('/api/movies', movieRouter);
 
 app.use('/api/users', userRouter);
+
+// app.get('/api/movies', (req, res) => {
+//   res.send(data);
+// });
 
 // app.use('/api/users')
 
