@@ -1,7 +1,7 @@
 import express from 'express';
 import Movie from '../models/movieModel.js';
 import expressAsyncHandler from 'express-async-handler';
-import { isAdmin } from '../utils.js';
+import { isAdmin, isAuth } from '../utils.js';
 
 const movieRouter = express.Router();
 
@@ -42,6 +42,7 @@ movieRouter.post(
 
 movieRouter.delete(
   '/:id',
+  isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const movie = await Movie.findById(req.params.id);
