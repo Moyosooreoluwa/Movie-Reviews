@@ -16,6 +16,7 @@ import LoadingSpinner from '../Components/LoadingSpinner';
 import MessageBox from '../Components/MessageBox';
 import { Store } from '../store';
 import { getError } from '../utils';
+import github from '../images/github.svg';
 
 const reducer = (state, action) => {
   switch (action.type) {

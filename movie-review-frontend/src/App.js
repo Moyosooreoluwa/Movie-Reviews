@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SigninScreen from './screens/SigninScreen';
 import HomeScreen from './screens/HomeScreen';
 import { Store } from './store';
+import github from './images/github.png';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -39,6 +40,20 @@ function App() {
               </LinkContainer>
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto w-100 justify-content-end ">
+                  <a
+                    href="https://github.com/Moyosooreoluwa"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {' '}
+                    <img
+                      alt="Github Link"
+                      src={github}
+                      width="30"
+                      height="30"
+                      className="d-inline-block mt-1"
+                    />
+                  </a>
                   {userInfo ? (
                     <Link
                       className="nav-link nav-text"
@@ -65,7 +80,16 @@ function App() {
         </main>
 
         <footer className="mt-5">
-          <div className="text-center">Moyo 2023</div>
+          <div className="text-center">
+            Moyo 2023
+            <p className="text-muted">
+              <a href="https://iconscout.com/icons/github" target="_blank">
+                Github Icon
+              </a>{' '}
+              on <a href="https://iconscout.com">IconScout</a>
+            </p>
+          </div>
+          <div></div>
         </footer>
       </div>
     </BrowserRouter>
