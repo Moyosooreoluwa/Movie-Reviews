@@ -78,6 +78,7 @@ export default function HomeScreen() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [name, setName] = useState('');
+  const [year, setYear] = useState('');
   const [rating, setRating] = useState('');
   const [review, setReview] = useState('');
   const [tags, setTags] = useState('');
@@ -90,6 +91,7 @@ export default function HomeScreen() {
         '/api/movies',
         {
           name,
+          year,
           rating,
           review,
           tags,
@@ -112,6 +114,7 @@ export default function HomeScreen() {
 
   const onClear = () => {
     setName('');
+    setYear('');
     setRating('');
     setReview('');
     setTags('');
@@ -178,6 +181,15 @@ export default function HomeScreen() {
                           <Form.Text className="text-muted">
                             E.g The Godfather
                           </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="year">
+                          <Form.Label className="label">Year</Form.Label>
+                          <Form.Control
+                            type="text"
+                            required
+                            onChange={(e) => setYear(e.target.value)}
+                            value={year}
+                          />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="rating">
                           <Form.Label className="label">Rating</Form.Label>
@@ -261,7 +273,10 @@ export default function HomeScreen() {
                     <Card key={movie._id} className="card-list">
                       <Card.Body>
                         {' '}
-                        <Card.Title>{movie.name}</Card.Title>
+                        <Card.Header className="text-muted year">
+                          {movie.year}
+                        </Card.Header>
+                        <Card.Title className="">{movie.name}</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
                           {movie.tags}
                         </Card.Subtitle>

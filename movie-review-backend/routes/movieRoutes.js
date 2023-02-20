@@ -24,6 +24,7 @@ movieRouter.post(
   expressAsyncHandler(async (req, res) => {
     const newMovie = new Movie({
       name: req.body.name,
+      year: req.body.year,
       rating: req.body.rating,
       review: req.body.review,
       tags: req.body.tags,
@@ -32,6 +33,7 @@ movieRouter.post(
     res.send({
       _id: movie._id,
       name: movie.name,
+      year: movie.year,
       rating: movie.rating,
       review: movie.review,
       tags: movie.tags,
