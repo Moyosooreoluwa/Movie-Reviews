@@ -83,7 +83,11 @@ function App() {
           <div className="text-center">
             Moyo 2023
             <p className="text-muted">
-              <a href="https://iconscout.com/icons/github" target="_blank">
+              <a
+                href="https://iconscout.com/icons/github"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Github Icon
               </a>{' '}
               on <a href="https://iconscout.com">IconScout</a>
