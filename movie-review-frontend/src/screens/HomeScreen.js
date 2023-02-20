@@ -26,29 +26,29 @@ const reducer = (state, action) => {
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     case 'CREATE_REQUEST':
-      return { ...state, loadingCreate: true };
+      return { ...state, loading: true };
     case 'CREATE_SUCCESS':
       return {
         ...state,
-        loadingCreate: false,
+        loading: false,
         successCreate: true,
       };
     case 'CREATE_FAIL':
-      return { ...state, loadingCreate: false };
+      return { ...state, loading: false };
     case 'CREATE_RESET':
-      return { ...state, loadingCreate: false, successCreate: false };
+      return { ...state, loading: false, successCreate: false };
     case 'DELETE_REQUEST':
-      return { ...state, loadingDelete: true, successDelete: false };
+      return { ...state, loading: true, successDelete: false };
     case 'DELETE_SUCCESS':
       return {
         ...state,
-        loadingDelete: false,
+        loading: false,
         successDelete: true,
       };
     case 'DELETE_FAIL':
-      return { ...state, loadingDelete: false, successDelete: false };
+      return { ...state, loading: false, successDelete: false };
     case 'DELETE_RESET':
-      return { ...state, loadingDelete: false, successDelete: false };
+      return { ...state, loading: false, successDelete: false };
 
     default:
       return state;
@@ -178,6 +178,7 @@ export default function HomeScreen() {
                             required
                             onChange={(e) => setName(e.target.value)}
                             value={name}
+                            autocomplete="off"
                           />
                           <Form.Text className="text-muted">
                             E.g The Godfather
@@ -190,6 +191,7 @@ export default function HomeScreen() {
                             required
                             onChange={(e) => setYear(e.target.value)}
                             value={year}
+                            autocomplete="off"
                           />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="rating">
@@ -201,6 +203,7 @@ export default function HomeScreen() {
                             required
                             onChange={(e) => setRating(e.target.value)}
                             value={rating}
+                            autocomplete="off"
                           />
                           <Form.Text className="text-muted">
                             Out of 100
@@ -215,6 +218,7 @@ export default function HomeScreen() {
                             aria-multiline
                             onChange={(e) => setReview(e.target.value)}
                             value={review}
+                            autocomplete="off"
                           />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="tags">
@@ -226,6 +230,7 @@ export default function HomeScreen() {
                             required
                             onChange={(e) => setTags(e.target.value)}
                             value={tags}
+                            autocomplete="off"
                           />
                           <Form.Text className="text-muted">
                             E.g Thriller, Animation, etc.
@@ -262,10 +267,6 @@ export default function HomeScreen() {
                   ></FormControl>
                 </InputGroup>
               </Form>
-              {loadingCreate && <LoadingSpinner />}
-              {loadingDelete && <LoadingSpinner />}
-              {loading && <LoadingSpinner />}
-              {error && <MessageBox variant="danger">{error}</MessageBox>}
 
               {searchTerm === '' ? (
                 <div className="text-muted mt-1">Reviews: {movies.length}</div>
@@ -285,7 +286,13 @@ export default function HomeScreen() {
                   }
                 </div>
               )}
-              {searchTerm === '' ? (
+              {/* {loadingCreate && <LoadingSpinner />}
+              {loadingDelete && <LoadingSpinner />} */}
+              {loading && <LoadingSpinner />}
+              {error && <MessageBox variant="danger">{error}</MessageBox>}
+              {loading === false && searchTerm === '' && movies.length === 0 ? (
+                <MessageBox variant="dark">No movies found.</MessageBox>
+              ) : searchTerm === '' ? (
                 movies.map((movie) => (
                   <div key={movie._id} className="mt-5">
                     <Card key={movie._id} className="card-list">
@@ -353,80 +360,6 @@ export default function HomeScreen() {
                   </div>
                 ))
               )}
-              {/* {loading ? (
-                <LoadingSpinner />
-              ) : error ? (
-                <MessageBox variant="danger">{error}</MessageBox>
-              ) : searchTerm === '' ? (
-                movies.map((movie) => (
-                  <div key={movie._id} className="mt-5">
-                    <Card key={movie._id} className="card-list">
-                      <Card.Body>
-                        {' '}
-                        <Card.Header className="text-muted year">
-                          {movie.year}
-                        </Card.Header>
-                        <Card.Title className="">{movie.name}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">
-                          {movie.tags}
-                        </Card.Subtitle>
-                        <Card.Text>{movie.review}</Card.Text>
-                        <Card.Footer>
-                          {movie.rating} / 100
-                          {userInfo && (
-                            <Button
-                              onClick={() => deleteHandler(movie)}
-                              type="button"
-                              className="btn-delete"
-                              variant="danger"
-                            >
-                              -
-                            </Button>
-                          )}
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                ))
-              ) : (
-                movies
-                  .filter(
-                    (movie) =>
-                      movie.name
-                        .toLowerCase()
-                        .includes(searchTerm.toLocaleLowerCase()) ||
-                      movie.tags
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                  )
-                  .map((movie) => (
-                    <div key={movie._id} className="mt-5">
-                      <Card key={movie._id} className="card-list">
-                        <Card.Body>
-                          {' '}
-                          <Card.Title>{movie.name}</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted">
-                            {movie.tags}
-                          </Card.Subtitle>
-                          <Card.Text>{movie.review}</Card.Text>
-                          <Card.Footer>
-                            {movie.rating} / 100
-                            {userInfo && (
-                              <Button
-                                onClick={() => deleteHandler(movie)}
-                                type="button"
-                                className="btn-delete"
-                                variant="danger"
-                              >
-                                -
-                              </Button>
-                            )}
-                          </Card.Footer>
-                        </Card.Body>
-                      </Card>
-                    </div>
-                  ))
-              )} */}
             </Container>
           </Col>
         </Row>
