@@ -1,7 +1,5 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 export default function About() {
   return (
@@ -11,13 +9,16 @@ export default function About() {
       </div>
       <Container>
         <div className="form-border mt-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          I am Frontend Developer and also recently became very interested in
+          movies. I figured I use two of my hobbies to make something and I
+          thought of MovieReviews. This entire website is built from scratch
+          with the MERN stack. (MongoDB, Express, Reactjs, and Nodejs). Anyone
+          can view the website but only the admin(me) can upload and edit
+          reviees. So, if you're ever looking for a movie to watch, feel free to
+          visit this site and come see my opinion on movies I have watched. If
+          you're interested, my Github, which has all my projects(some private
+          for security reasons) is at the top of the page. You can also find my
+          email there if you wish to reach out. Enjoy.
         </div>
       </Container>
     </div>
