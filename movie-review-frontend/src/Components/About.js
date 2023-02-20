@@ -14,10 +14,10 @@ export default function About() {
           thought of MovieReviews. This entire website is built from scratch
           with the MERN stack. (MongoDB, Express, Reactjs, and Nodejs). Anyone
           can view the website but only the admin(me) can upload and edit
-          reviees. So, if you're ever looking for a movie to watch, feel free to
-          visit this site and come see my opinion on movies I have watched. If
-          you're interested, my Github, which has all my projects(some private
-          for security reasons) is at the top of the page. You can also find my
+          reviews. So, if you're ever looking for a movie to watch, feel free to
+          visit this site to see my opinion on movies I have watched. If you're
+          interested, my Github, which has all my projects(some private for
+          security reasons) is at the top of the page. You can also find my
           email there if you wish to reach out. Enjoy.
         </div>
       </Container>

@@ -266,9 +266,7 @@ export default function HomeScreen() {
               {loadingDelete && <LoadingSpinner />}
               {loading && <LoadingSpinner />}
               {error && <MessageBox variant="danger">{error}</MessageBox>}
-              {movies.length === 0 && (
-                <MessageBox variant="dark">No Movies Found</MessageBox>
-              )}
+
               {searchTerm === '' ? (
                 <div className="text-muted mt-1">Reviews: {movies.length}</div>
               ) : (
