@@ -332,33 +332,43 @@ export default function HomeScreen() {
                 ).length === 0 ? (
                 <MessageBox variant="dark">No Movies Found</MessageBox>
               ) : (
-                movies.map((movie) => (
-                  <div key={movie._id} className="mt-5">
-                    <Card key={movie._id} className="card-list">
-                      <Card.Body>
-                        {' '}
-                        <Card.Title>{movie.name}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">
-                          {movie.tags}
-                        </Card.Subtitle>
-                        <Card.Text>{movie.review}</Card.Text>
-                        <Card.Footer>
-                          {movie.rating} / 100
-                          {userInfo && (
-                            <Button
-                              onClick={() => deleteHandler(movie)}
-                              type="button"
-                              className="btn-delete"
-                              variant="danger"
-                            >
-                              -
-                            </Button>
-                          )}
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                ))
+                movies
+                  .filter(
+                    (movie) =>
+                      movie.name
+                        .toLowerCase()
+                        .includes(searchTerm.toLocaleLowerCase()) ||
+                      movie.tags
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                  )
+                  .map((movie) => (
+                    <div key={movie._id} className="mt-5">
+                      <Card key={movie._id} className="card-list">
+                        <Card.Body>
+                          {' '}
+                          <Card.Title>{movie.name}</Card.Title>
+                          <Card.Subtitle className="mb-2 text-muted">
+                            {movie.tags}
+                          </Card.Subtitle>
+                          <Card.Text>{movie.review}</Card.Text>
+                          <Card.Footer>
+                            {movie.rating} / 100
+                            {userInfo && (
+                              <Button
+                                onClick={() => deleteHandler(movie)}
+                                type="button"
+                                className="btn-delete"
+                                variant="danger"
+                              >
+                                -
+                              </Button>
+                            )}
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                    </div>
+                  ))
               )}
             </Container>
           </Col>
